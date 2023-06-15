@@ -7,31 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- <php? $edit = DB::table('product')->where('id', 15)->get() ?> --}}
+    {{-- <php? $product = DB::table('product')->where('id', 15)->get() ?> --}}
     {{-- @foreach ($products as $product) --}}
-        <form action="{{ route('update_product',$product->id) }}" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             {{-- @method('patch') --}}
             @csrf
-            {{-- <input type="hidden" name="id" value="{{ $edit->id }}"> <br/> --}}
+            {{-- <input type="hidden" name="id" value="{{ $product->id }}"> <br/> --}}
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Name" class="form-control"
-                    value="{{ $edit->name }}">
+                    value="{{ $product->name }}">
             </div>
             <div class="form-group">
                 <label>Description</label>
                 <input type="text" name="description" placeholder="Description" class="form-control"
-                    value="{{ $edit->description }}">
+                    value="{{ $product->description }}">
             </div>
             <div class="form-group">
                 <label>Price</label>
                 <input type="number" name="price" placeholder="Price" class="form-control"
-                    value={{ $edit->price }}>
+                    value={{ $product->price }}>
             </div>
             <div class="form-group">
                 <label>Stock</label>
                 <input type="number" name="stock" placeholder="Stock" class="form-control"
-                    value={{ $edit->stock }}>
+                    value={{ $product->stock }}>
             </div>
 
             <div class="form-group">

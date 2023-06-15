@@ -65,8 +65,8 @@ class ProductController extends Controller
 
     public function edit_product($id)
     {
-        $edit = DB::table('product')->where('id', $id)->get();
-        return view('edit_product');
+        $product = DB::table('product')->where('id', $id)->get();
+        return view('edit_product')->with('product', $product);
     }
 
     public function update_product(Request $request)
@@ -80,7 +80,7 @@ class ProductController extends Controller
         ]);
         
         if($request->hasFile('image')){
-            $resorce       = $request->file('image');
+            $resorce= $request->file('image');
             $path   = time() . '_' . $resorce->getClientOriginalName();
             Storage::disk('local')->put('public/' . $path, file_get_contents($resorce));
             $product = DB::table('product')
